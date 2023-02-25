@@ -1,12 +1,15 @@
 import React, {useState} from "react";
+import Filterer from "./Filterer";
+import PersonForm from "./PersonForm";
+import ContactList from "./ContactList";
 import Pnumber from "./Pnumber";
 
 const App = () => {
     const [persons, setPerson] = useState([
-        {name: 'Arto Hellas', number: '040-123456'},
-        {name: 'Ada Lovelace', number: '39-44-23532'},
-        {name: 'Dan Abramov', number: '12-43-234234'},
-        {name: 'Mary Poppendieck', number: '39-23-124452'}
+        {name: 'Arto Hellas', number: '040-123456', id:1},
+        {name: 'Ada Lovelace', number: '39-44-23532', id:2},
+        {name: 'Dan Abramov', number: '12-43-234234', id:3},
+        {name: 'Mary Poppendieck', number: '39-23-124452', id:4}
     ])
     const [newName, setNewName] = useState('')
     const [newNumber,setNewNumber] = useState('')
@@ -35,31 +38,11 @@ const App = () => {
     return(
         <div>
             <h2>Phonebook</h2>
-            <div>
-                Search by name: <input value={nameFilter} onChange={handleFilter}/>
-            </div>
-            <h2>Add a new</h2>
-            <form onSubmit={addPerson}>
-                <div>
-                    name: <input value ={newName} onChange={handleNewName}/>
-                </div>
-                <div>
-                    number: <input value ={newNumber} onChange={handleNewNumber}/>
-                </div>
-                <div>
-                    <button type="submit">add</button>
-                </div>
-            </form>
-            <h2>Numbers</h2>
-            <ul>
-                {
-                    filteredNames.map(x => {
-                        console.log(x.id,x.name)
-                    return(
-                    <Pnumber key={x.id} pnumber={x}/>
-                    )})
-                }
-            </ul>
+            <Filterer nameFilter = {nameFilter} handleFilter={handleFilter}/>
+            <h3>Add a new</h3>
+            <PersonForm addPerson = {addPerson} newName = {newName} handleNewName = {handleNewName} newNumber = {newNumber} handleNewNumber = {handleNewNumber}/>
+            <h3>Numbers</h3>
+            <ContactList filteredNames={filteredNames}/>
         </div>
     )
 }
