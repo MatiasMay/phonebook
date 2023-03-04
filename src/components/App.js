@@ -1,19 +1,20 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import Filterer from "./Filterer";
 import PersonForm from "./PersonForm";
 import ContactList from "./ContactList";
-import Pnumber from "./Pnumber";
+import axios from "axios";
 
 const App = () => {
-    const [persons, setPerson] = useState([
-        {name: 'Arto Hellas', number: '040-123456', id:1},
-        {name: 'Ada Lovelace', number: '39-44-23532', id:2},
-        {name: 'Dan Abramov', number: '12-43-234234', id:3},
-        {name: 'Mary Poppendieck', number: '39-23-124452', id:4}
-    ])
+    const [persons, setPerson] = useState([])
     const [newName, setNewName] = useState('')
     const [newNumber,setNewNumber] = useState('')
     const [nameFilter,setNameFilter] = useState('')
+    useEffect(() => {
+        axios.get('http://localhost:3001/contactos')
+        .then(response =>{
+            setPerson(response.data)
+        })
+    },[])
     const addPerson = (event) => {
         event.preventDefault()
         const numObject = {
