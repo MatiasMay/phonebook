@@ -1,6 +1,34 @@
-{"contactos" : [
-    {"name": "Arto Hellas", "number": "040-123456", "id":1},
-    {"name": "Ada Lovelace", "number": "39-44-23532","id":2},
-    {"name": "Dan Abramov", "number": "12-43-234234", "id":3},
-    {"name": "Mary Poppendieck", "number": "39-23-124452", "id":4}
-]}
+{
+  "contactos": [
+    {
+      "name": "Arto Hellas",
+      "number": "040-123456",
+      "id": 1
+    },
+    {
+      "name": "Ada Lovelace",
+      "number": "39-44-23532",
+      "id": 2
+    },
+    {
+      "name": "Dan Abramov",
+      "number": "12-43-234234",
+      "id": 3
+    },
+    {
+      "name": "Mary Poppendieck",
+      "number": "99 23 43",
+      "id": 4
+    },
+    {
+      "name": "Gunther",
+      "number": "3443",
+      "id": 7
+    },
+    {
+      "name": "Matias",
+      "number": "434343",
+      "id": 8
+    }
+  ]
+}
