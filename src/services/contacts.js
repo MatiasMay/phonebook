@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = '/api/persons'
+const url = 'https://nahuiphonebook.onrender.com/api/persons'
 
 const getContacts = () => {
     const request = axios.get(url)
